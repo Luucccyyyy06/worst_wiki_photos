@@ -1,0 +1,29 @@
+### Wikipedia API tutorial
+# https://pypi.org/project/wikipedia/
+# https://wikipedia.readthedocs.io/en/latest/code.html
+
+import wikipedia
+
+# set rate_limting, to enable/disable rate limiting on requests to servers, to avoid HTTP timeout error.
+wikipedia.set_rate_limiting(rate_limit=True)
+
+
+# wikipedia search does a wikipedia search for a query
+print(wikipedia.search("Rufus Sewell"))
+print(wikipedia.search("Barack", results=3, suggestion=True))
+
+# wikipedia suggest returns the suggested wikipeda title for a query, or None
+print(wikipedia.suggest("Aubrey Herburn"))
+
+# wikipedia summary returns a plain text summary of the page.
+# auto-suggest and redirect are enabled by default
+print(wikipedia.summary("Rufus Sewell", sentences=1, auto_suggest=False))
+
+# page returns a WikipediaPage object for the page ith the title 'title' or pageid 'pageid' (mutually exclusive).
+rufus = wikipedia.page("Rufus Sewell")
+print(rufus.title)
+# print(rufus.categories)
+# print(rufus.html())
+print(rufus.images)
+# print(rufus.links)
+# print(rufus.section("Filmography"))

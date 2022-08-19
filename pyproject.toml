@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "worst_wiki_photos"
+version = "0.1.0"
+description = "the worst wikipedia photos out there"
+authors = ["lucy.bowles <lucy.bowles@brandwatch.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.4.3"
+plotly = "^5.10.0"
+numpy = "^1.23.2"
+dash = "^2.6.1"
+wikipedia = "^1.4.0"
+rich = "^12.5.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+jupyterlab-black = "^0.2.1"
+pylint = "^2.14.5"
+flake8 = "^5.0.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

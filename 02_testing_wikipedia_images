@@ -1,0 +1,40 @@
+### Testing out a group of celebrities and returning their wikipedia pictures
+import wikipedia
+from rich import print
+
+
+# set rate_limting, to enable/disable rate limiting on requests to servers, to avoid HTTP timeout error.
+wikipedia.set_rate_limiting(rate_limit=True)
+
+celebrity_list = [
+    "Rufus Sewell",
+    "Paul Mescal",
+    "Charlize Theron",
+    "Jet Li",
+    # "Usher",
+    "Daniel Radcliffe",
+    "Beyonce",
+]
+celebrity_photos = {}
+celebrity_page_titles = {}
+
+
+# print(wikipedia.search(celebrity_list[3], suggestion=True))
+
+
+# # get the first image from the celebrity's file, which is usually the one at the top
+# for celebrity in celebrity_list:
+#     celebrity_photos[celebrity] = wikipedia.page(f"{celebrity}").images[0]
+
+# print(celebrity_photos)
+
+# get the first image from the celebrity's file, which is usually the one at the top
+for celebrity in celebrity_list:
+    celebrity_page_titles[celebrity] = wikipedia.page(celebrity, auto_suggest=False)
+
+print(celebrity_page_titles)
+
+# for celebrity in celebrity_list:
+#     celebrity_photos[celebrity] = wikipedia.page(f"{celebrity}").images[0]
+
+# print(celebrity_photos)
