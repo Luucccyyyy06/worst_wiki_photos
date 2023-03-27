@@ -12,6 +12,7 @@ numpy = "^1.23.2"
 dash = "^2.6.1"
 wikipedia = "^1.4.0"
 rich = "^12.5.1"
+Wikipedia-API = "^0.5.4"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"

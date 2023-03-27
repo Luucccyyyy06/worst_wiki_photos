@@ -15,26 +15,11 @@ celebrity_list = [
     "Daniel Radcliffe",
     "Beyonce",
 ]
-celebrity_photos = {}
-celebrity_page_titles = {}
-
-
 # print(wikipedia.search(celebrity_list[3], suggestion=True))
 
-
-# # get the first image from the celebrity's file, which is usually the one at the top
-# for celebrity in celebrity_list:
-#     celebrity_photos[celebrity] = wikipedia.page(f"{celebrity}").images[0]
-
-# print(celebrity_photos)
-
-# get the first image from the celebrity's file, which is usually the one at the top
+celebrity_names_and_photos = {}
 for celebrity in celebrity_list:
-    celebrity_page_titles[celebrity] = wikipedia.page(celebrity, auto_suggest=False)
-
-print(celebrity_page_titles)
-
-# for celebrity in celebrity_list:
-#     celebrity_photos[celebrity] = wikipedia.page(f"{celebrity}").images[0]
-
-# print(celebrity_photos)
+    celebrity_names_and_photos[celebrity] = {
+        "name": wikipedia.search(celebrity_list[celebrity], suggestion=True),
+        "image": wikipedia.page(f"{celebrity}").images[0],
+    }

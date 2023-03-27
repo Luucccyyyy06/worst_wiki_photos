@@ -1,14 +1,14 @@
 import requests
+import ast
 
 api_url = "http://en.wikipedia.org/w/api.php"
-
 
 params = dict()
 params["format"] = "json"
 params["action"] = "query"
 
-results = 10
-query = "Jet Li"
+results = 3
+query = "Beyonce"
 
 search_params = {
     "list": "search",
@@ -18,6 +18,17 @@ search_params = {
     "srsearch": query,
 }
 
+for k, v in search_params.items():
+    params[k] = v
+
+response = requests.get(api_url, params=params)
+response_text = ast.literal_eval(response.text)
+print("##########")
+print(response_text)
+print("##########")
+print(response_text["query"]["search"][0])
+
+
 # what other types of params can we use to get different info? list:search but could we get list:info or something?
 # then we could directly pull to see if its a disambiguation page or an actual page
 query_params = {
@@ -26,10 +37,23 @@ query_params = {
     "ppprop": "disambiguation",
     "redirects": "",
 }
+print("##########")
+print("TEST PARAMS")
+print("##########")
+test_params = {
+    "action": "query",
+    "prop": "images",
+    "prop": "info",
+    "list": "search",
+    "format": "json",
+}
 
-for k, v in search_params.items():
+for k, v in test_params.items():
     params[k] = v
 
-# print(params)
 response = requests.get(api_url, params=params)
-print(response.text)
+response_text = ast.literal_eval(response.text)
+print("##########")
+print(response_text)
+print("##########")
+print(response_text["query"])
